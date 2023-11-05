@@ -2,52 +2,45 @@
     <div class="container-fluid">
         <h1 class="mt-4"></h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/surat_masuk') ?>">User</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/user') ?>">User</a></li>
             <li class="breadcrumb-item active"><?php echo $title ?></li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-            <form action="<?php echo site_url('admin/surat_masuk/edit') ?>" method="post" enctype="multipart/form-data" >
-            <div class="mb-3">
-                <label >NO SURAT MASUK <code>*</code></label>
-                <input class="form-control" type="text" name="no_surat" placeholder="NO SURAT MASUK" required /> 
- 
-            </div>
-            <div class="mb-3">
-                <label >PERIHAL SURAT <code>*</code></label>
-                <input class="form-control" type="text" name="perihal" placeholder="PERIHAL SURAT" required /> 
- 
-            </div>
-            <div class="mb-3">
-                <label >TANGGAL SURAT <code>*</code></label>
-                <input class="form-control" type="date" name="tgl_surat" placeholder="TANGGAL SURAT" required /> 
- 
-            </div>
-            <div class="mb-3">
-                <label >SURAT DARI <code>*</code></label>
-                <input class="form-control" type="text" name="surat_from" placeholder="SURAT DARI" required /> 
- 
-            </div>
-            <div class="mb-3">
-                <label >TUJUAN SURAT <code>*</code></label>
-                <input class="form-control" type="text" name="surat_to" placeholder="TUJUAN SURAT" required /> 
- 
-            </div>
-            <div class="mb-3">
-                <label >TANGGAL TERIMA SURAT <code>*</code></label>
-                <input class="form-control" type="date" name="tgl_terima" placeholder="TANGGAL TERIMA SURAT" required /> 
-            </div>
-            <div class="mb-3">
-                <label for="username">KETERANGAN <code>*</code></label>
-                <textarea class="form-control" placeholder="KETERANGAN" name="keterangan" id="floatingTextarea2" style="height: 100px"></textarea> 
-            </div> 
-            <div class="mb-3">
-                <label for="image">BERKAS SURAT (Photo)</label>
-                <input type="file" class="form-control" id="inputGroupFile01" name="image"> 
-            </div>
-            <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i> Save Data</button>
-        </form>
- 
+                <form action="<?php echo site_url('admin/user/save') ?>" method="post">
+                    <div class="mb-3">
+                        <label for="username">USERNAME <code>*</code></label>
+                        <input class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" type="text" name="username" placeholder="USERNAME" required />
+                        <div class="invalid-feedback">
+                            <?php echo form_error('username') ?>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="full_name">FULL NAME <code>*</code></label>
+                        <input class="form-control" type="text" name="full_name" placeholder="FULL NAME" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone">PHONE</label>
+                        <input class="form-control" type="number" name="phone" placeholder="PHONE" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">EMAIL</label>
+                        <input class="form-control" type="text" name="email" placeholder="EMAIL" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">PASSWORD</label>
+                        <input type="password" class="form-control" id="password" name="password" autocomplete="off" placeholder="PASSWORD" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role">Role</label>
+                        <select class="form-select" id="role" name="role" required>
+                            <option selected>Choose...</option>
+                            <option value="admin">ADMIN</option>
+                            <option value="sekretaris">SEKRETARIS</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i> Save</button>
+                </form>
             </div>
         </div>
         <div style="height: 100vh"></div>
